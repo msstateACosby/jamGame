@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2639427315
+    locked: 0
+  - name: Placeables
+    uniqueID: 1593402541
+    locked: 0
+  - name: Agents
+    uniqueID: 1245174977
+    locked: 0
+  - name: Effects
+    uniqueID: 3422382621
+    locked: 0
