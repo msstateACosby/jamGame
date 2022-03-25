@@ -5,6 +5,8 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     List<MapObj> placedObjs;
+    List<Agent> agents;
+    int[][] mapWeights;
     public int startingMapRadius = 3;
     int mapRadius;
 
@@ -35,7 +37,7 @@ public class Manager : MonoBehaviour
             }
 
         }
-        Instantiate(chasm, new Vector3(0,0), Quaternion.identity, this.transform);
+        Instantiate(chasm.gameObject, new Vector3(0,0), Quaternion.identity, this.transform);
         placedObjs.Add(chasm);
     }
     void expandMap()
