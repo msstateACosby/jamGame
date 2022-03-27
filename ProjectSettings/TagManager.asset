@@ -53,3 +53,9 @@ TagManager:
   - name: Effects
     uniqueID: 3422382621
     locked: 0
+  - name: TextBack
+    uniqueID: 3210811041
+    locked: 0
+  - name: TextFront
+    uniqueID: 1938593491
+    locked: 0

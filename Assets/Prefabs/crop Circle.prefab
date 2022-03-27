@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3990828954052334265}
   - component: {fileID: 7645890047865694583}
+  - component: {fileID: -1467832838059099429}
   m_Layer: 0
   m_Name: crop Circle
   m_TagString: Untagged
@@ -82,3 +83,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1467832838059099429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743793829289435560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4307674885c4123478f95579d46260cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loc: {x: 0, y: 0}
+  objectType:
+    name: Crop Circle
+    sign: -1
+    maxRadius: 4
+    baseEffect: 1
+    a: 0
+    b: 0
+  calculatorType: 0

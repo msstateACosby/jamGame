@@ -95,4 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4307674885c4123478f95579d46260cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Chasm
+  loc: {x: 0, y: 0}
+  objectType:
+    name: chasm
+    sign: -1
+    maxRadius: -1
+    baseEffect: 0
+    a: 1
+    b: 0
+  calculatorType: 0
