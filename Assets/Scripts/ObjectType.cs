@@ -13,6 +13,6 @@ public class ObjectType
     //max radius determines how far the effect goes, -1 for infinite
 
     public int sign, maxRadius, baseEffect, a, b;
-
+    public bool collecting;
 
 }

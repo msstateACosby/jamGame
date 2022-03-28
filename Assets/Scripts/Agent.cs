@@ -6,9 +6,12 @@ public class Agent : MonoBehaviour
 {
     // Start is called before the first frame update
     Vector2Int position;
-    void Start()
+    int timeleft;
+    void Awake()
     {
         position = new Vector2Int(((int)transform.position.x), (int)transform.position.y);
+        timeleft = 5;
+        GetComponent<SpriteRenderer>().color = Color.Lerp(Color.magenta, Color.green, Random.Range(0.0f, 1.0f));
     }
 
     // Update is called once per frame
@@ -16,34 +19,26 @@ public class Agent : MonoBehaviour
     {
         
     }
-    public Vector2Int move(int[,] mapWeights, int mapRadius)
+    public void initialize(int timeleft)
     {
+        this.timeleft = timeleft;
+        //Debug.Log(this.timeleft);
+    }
+    public Vector2Int move(Vector2Int[,] paths, List<Vector2Int> otherAgentPositions, int mapRadius, out bool expiring)
+    {
+        Vector2Int nextMove =paths[position.x+ mapRadius, position.y+mapRadius];
+        
+        Vector2Int nextposition = new Vector2Int(nextMove.x - mapRadius, nextMove.y -mapRadius);
+        //if (!otherAgentPositions.Contains(nextposition))
+            transform.position = new Vector3(nextMove.x - mapRadius, nextMove.y -mapRadius);
+            position = nextposition;
+        timeleft -= 1;
+        if (timeleft == 0) expiring= true;
+        
+        else expiring = false;
+        
+        if (expiring) Debug.Log("Experinging");
         return position;
     }
-    public void djikstras(int[,] map, int adjustedX, int adjustedY)
-    {
-        Dictionary<Vector2Int, Vector2Int> completedMap = new Dictionary<Vector2Int, Vector2Int>();
-        //Fibonn
-        //PriorityQueue<Vector2Int, int> frontier = new PriorityQueue<Vector2Int, int>();
-        int[,] distances = new int[map.GetLength(0), map.GetLength(1)];
-        bool foundCenter = false;
-        while (foundCenter != true)
-        {
-            //foreach (Vector2Int node in frontier)
-            //{
-
-            //}
-        }
-
-
-    }
-    List<Vector2Int> getNeighbors(int x, int y, int mapSize)
-    {
-        List<Vector2Int> neighbors = new List<Vector2Int>();
-        if (x+1 < mapSize) neighbors.Add(new Vector2Int(x+1, y));
-        if (x-1 >= 0) neighbors.Add(new Vector2Int(x-1, y));
-        if (y+1 < mapSize) neighbors.Add(new Vector2Int(x, y+1));
-        if (y-1 >= 0) neighbors.Add(new Vector2Int(x, y-1));
-        return neighbors;
-    }
+    
 }

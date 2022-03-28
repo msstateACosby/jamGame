@@ -37,7 +37,7 @@ public class Tile : MonoBehaviour
     public void updateWeight(int newWeight, int mapRadius)
     {
         float percentOfMax = (float)(newWeight)/(float)(mapRadius);
-        GetComponent<SpriteRenderer>().color = new Color(percentOfMax, percentOfMax, 1.0f, 1.0f);
+        //GetComponent<SpriteRenderer>().color = new Color(percentOfMax, percentOfMax, 1.0f, 1.0f);
         currentWeight = newWeight;
         updateDebugText();
     
@@ -46,5 +46,30 @@ public class Tile : MonoBehaviour
     {
          transform.GetChild(0).GetComponent<TextMesh>().text = currentWeight.ToString();
          
+    }
+    public void setPathImage(Vector2Int direction)
+    {
+        Transform pathImageTrans = transform.GetChild(1).transform;
+        
+        if (direction == Vector2Int.up)
+        {
+            pathImageTrans.rotation = Quaternion.Euler(0,0,90);
+            
+        }
+        else if (direction == Vector2Int.left)
+        {
+            pathImageTrans.rotation = Quaternion.Euler(0,0,180 );
+            
+        }
+        else if (direction == Vector2Int.down)
+        {
+            pathImageTrans.rotation = Quaternion.Euler(0,0,270);
+            
+        }
+        else if (direction == Vector2Int.right)
+        {
+            pathImageTrans.rotation = Quaternion.Euler(0,0,0);
+            
+        }
     }
 }

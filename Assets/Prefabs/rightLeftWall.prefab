@@ -98,9 +98,10 @@ MonoBehaviour:
   loc: {x: 0, y: 0}
   objectType:
     name: Horizontal Wall
-    sign: 0
-    maxRadius: 0
-    baseEffect: 0
-    a: 0
+    sign: 1
+    maxRadius: 1
+    baseEffect: 12
+    a: 1
     b: 0
-  calculatorType: 0
+    collecting: 0
+  calculatorType: 1

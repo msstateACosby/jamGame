@@ -12,20 +12,24 @@ public class MapObj : MonoBehaviour
     
     
     public IObjectWeightCalculator weightCalculator;
-    public enum CalculatorType {Linear}
+    public enum CalculatorType {Linear, Wall}
 
     public CalculatorType calculatorType;
 
-    void Start()
+    void Awake()
     {
         switch(calculatorType)
         {
         case CalculatorType.Linear:
             weightCalculator = new LinearWeightCalculator();
             break;
+        case CalculatorType.Wall:
+            weightCalculator = new WallWeightCalculator();
+            break;
         }
         loc.x = (int)transform.position.x;
         loc.y = (int)transform.position.y;
+        
     }
     public void addToMapWeights(int[,] mapWeights, int mapRadius)
     {
@@ -44,6 +48,9 @@ public class MapObj : MonoBehaviour
             }
         }
     }
-    
+    public bool isCollecting()
+    {
+        return objectType.collecting;
+    }
     
 }
